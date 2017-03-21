@@ -1,0 +1,20 @@
+sudo: false
+
+language: go
+
+go:
+  - 1.8
+
+before_install:
+  - go get -v github.com/kardianos/govendor
+  - go get -v github.com/mitchellh/gox
+  - go get -v github.com/tcnksm/ghr
+
+install:
+  - govendor sync
+
+script:
+  - gox -output='build/{{.Dir}}_{{.OS}}_{{.Arch}}' -arch='386 amd64 arm' -os='linux darwin windows freebsd openbsd solaris' -osarch='!darwin/arm !darwin/386'
+
+after_success:
+  - ./scripts/deploy

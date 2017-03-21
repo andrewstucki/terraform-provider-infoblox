@@ -1,0 +1,11 @@
+*.dll
+*.exe
+.DS_Store
+build
+vendor/*/
+.vagrant/
+*.log
+*.bak
+*~
+.*.swp
+.idea
