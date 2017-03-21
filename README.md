@@ -15,16 +15,16 @@ Download builds for Darwin, Linux and Windows from the [releases page](https://g
 ```
 # Configure the Infoblox provider
 provider "infoblox" {
-    username = "${var.infoblox_username}"
-    password = "${var.infoblox_password}"
-    host  = "${var.infoblox_host}"
-    sslverify = "${var.infoblox_sslverify}"
-    usecookies = "${var.infoblox_usecookies}"
+  username = "${var.infoblox_username}"
+  password = "${var.infoblox_password}"
+  host  = "${var.infoblox_host}"
+  sslverify = "${var.infoblox_sslverify}"
+  usecookies = "${var.infoblox_usecookies}"
 }
 
 # Create a record
 resource "infoblox_record" "www" {
-    ...
+  ...
 }
 ```
 
@@ -47,11 +47,11 @@ Provides a Infoblox record resource.
 ```
 # Add a record to the domain
 resource "infoblox_record" "foobar" {
-	value = "192.168.0.10"
-	name = "terraform"
-	domain = "mydomain.com"
-	type = "A"
-	ttl = 3600
+  value = "192.168.0.10"
+  name = "terraform"
+  domain = "mydomain.com"
+  type = "A"
+  ttl = 3600
 }
 ```
 
@@ -104,27 +104,27 @@ that can be used by the infoblox_record resource.
 # Acquire the next available IP from a network CIDR
 #it will create a variable called "ipaddress"
 resource "infoblox_ip" "ip_addresses" {
-	cidr = "10.0.0.0/24"
+  cidr = "10.0.0.0/24"
   ip_count = 2
 }
 
 
 # Add a record to the domain
 resource "infoblox_record" "foo" {
-	value = "${infoblox_ip.ip_addresses.addresses[0]}"
-	name = "foo"
-	domain = "mydomain.com"
-	type = "A"
-	ttl = 3600
+  value = "${infoblox_ip.ip_addresses.addresses[0]}"
+  name = "foo"
+  domain = "mydomain.com"
+  type = "A"
+  ttl = 3600
 }
 
 # Add a record to the domain
 resource "infoblox_record" "bar" {
-	value = "${infoblox_ip.ip_addresses.addresses[1]}"
-	name = "bar"
-	domain = "mydomain.com"
-	type = "A"
-	ttl = 3600
+  value = "${infoblox_ip.ip_addresses.addresses[1]}"
+  name = "bar"
+  domain = "mydomain.com"
+  type = "A"
+  ttl = 3600
 }
 ```
 
