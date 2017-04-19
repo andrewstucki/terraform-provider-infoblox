@@ -353,8 +353,10 @@
 		{
 			"checksumSHA1": "6AA7ZAzswfl7SOzleP6e6he0lq4=",
 			"path": "github.com/hashicorp/terraform/plugin",
-			"revision": "7729949ef4aa16475014350028fc9260e9ec7fd8",
-			"revisionTime": "2017-03-21T18:52:45Z"
+			"revision": "1601af7a076fd03fe940455db7fd01dfa747c795",
+			"revisionTime": "2017-04-12T20:21:42Z",
+			"version": "v0.9.3",
+			"versionExact": "v0.9.3"
 		},
 		{
 			"checksumSHA1": "oPHtJhQVh0SrnRFvoPFw9UJ1K0o=",
