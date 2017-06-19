@@ -46,8 +46,7 @@ func resourceInfobloxHost() *schema.Resource {
 			},
 
 			"address": &schema.Schema{
-				Type:     schema.TypeSet,
-				Elem:     &schema.Schema{Type: schema.TypeString},
+				Type:     schema.TypeString,
 				Computed: true,
 				Required: false,
 			},
