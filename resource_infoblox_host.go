@@ -6,10 +6,13 @@ import (
 	"log"
 	"net/url"
 	"strings"
+	"sync"
 
 	"github.com/fanatic/go-infoblox"
 	"github.com/hashicorp/terraform/helper/schema"
 )
+
+var globalMutex sync.Mutex
 
 func resourceInfobloxHost() *schema.Resource {
 	return &schema.Resource{
@@ -59,6 +62,8 @@ func resourceInfobloxHost() *schema.Resource {
 }
 
 func resourceInfobloxHostCreate(d *schema.ResourceData, meta interface{}) error {
+	globalMutex.Lock() // lock so that we don't have a race condition on querying available IPs
+	defer globalMutex.Unlock()
 	client := meta.(*infoblox.Client)
 
 	var excludedAddresses []string
