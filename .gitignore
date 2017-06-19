@@ -9,3 +9,4 @@ vendor/*/
 *~
 .*.swp
 .idea
+terraform-provider*

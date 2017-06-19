@@ -10,11 +10,6 @@ import (
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
-// InfobloxIPResponse structure for ip serialization
-type InfobloxIPResponse struct {
-	IPAddresses []string `json:"ips"`
-}
-
 func resourceInfobloxIP() *schema.Resource {
 	return &schema.Resource{
 		Create: resourceInfobloxIPCreate,
@@ -123,7 +118,6 @@ func resourceInfobloxIPCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	log.Printf("[TRACE] returned value in ips structure: %v", res)
-
 	log.Print("[TRACE] Setting ID, locking provisioned IP in terraform")
 
 	d.SetId(strings.Join(res.IPAddresses, " "))
